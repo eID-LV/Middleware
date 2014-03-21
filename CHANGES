@@ -1,0 +1,84 @@
+Changes between 1.0.14 and 1.1.0 (April 25th 2012)
+	- Add PinPAD support to the middleware and the PinTool
+	- PinTool: add changeLog acess from the about dialog
+	- PinTool: remove prefered reader name display from the status bar
+	- Windows installation : don't require to restart the PC if we are not updating from a previously installed version
+
+Changes between 1.0.13 and 1.0.14 (April 12th 2012)
+	- Implement Workaround in certificate propagation process for OpenSC bug when hibernating/switching users
+	- Update PinTool icon and welcome screen
+	
+Changes between 1.0.12 and 1.0.13 (March 30th 2012)
+	- Update Latvia translation of PinTool, CSP and help files
+	- Correct tokend bug under MacOSX
+	- Better packaging under MacOSX
+
+Changes between 1.0.11 and 1.0.12 (March 28th 2012)
+	- Update Latvia translation of PinTool, CSP and help files
+	- Many modifications in order to port the middleware and the PinTool GUI to Linux/GTK and MacOSX
+	
+Changes between 1.0.10 and 1.0.11 (February 20th 2012)
+	- Modify CSP dialogs in order to display "PIN1" and "PIN2" instead of "PIN" and "Paraksts PIN"
+
+Changes between 1.0.9 and 1.0.10 (February 13th 2012)
+	- PinTool: Change the window to a fixed size and gray out the maximize button
+	- PinTool: Change fonts of “Connect to a card reader” and "Help" on welcome screen to solve display issues
+	- PinTool: Display latvia version of welcome header when needed
+	- PinTool: Implement logs and display of help
+	- PinTool: Make the choice of the prefered reader permanent
+	- PinTool: Allow only one instance of the PinTool to run
+
+Changes between 1.0.8 and 1.0.9 (January 30th 2012)
+	- Disable PIN operations of the PinTool if a PinPAD is detected (for now, OpenSC doesn't handle PinPADs correctly)
+	- Force the background color of certificates details texte fields to white in order to avoid side effects of custom themes
+
+Changes between 1.0.7 and 1.0.8 (January 30th 2012)
+	- Correct OpenSC bug in C_GetTokenInfo where SO PIN flags were not correctly updated
+	- Add first version of PinTool for Latvia eID Middleware with multi-language support
+
+Changes between 1.0.6 and 1.0.7 (January 26th 2012)
+	- Add support for test cards previouly issued
+	- Correct crash when we fail to detect a card properly
+
+Changes between 1.0.5 and 1.0.6 (January 9th 2012)
+	- Correct the implementation of PIN unblocking in OpenSC
+	- Huge modification to PC/SC transaction management in OpenSC to make it more robust and stable. 
+	- Handle card reset more cleanly in order to restore card context. Manage Windows Vista specific behavior. 
+	- Remove interaction with standard OpenSC install by using different registry keys and different environnement variables for configuration.
+		- Registry configuration under HKLM\SOFTWARE\LATVIA eID)
+		- Usage of environnement varibale LATVIAEID_CONF instead of OPENSC_CONF
+	- Enhance logs by creating a file for every process and not a global file.
+	- Manage plug-n-play readers in CSP by calling C_GetSlotList using NULL for slots lists (specificity of OpenSC)
+	- Enhance certificate propagation process stability by making PC/SC event loop more robust
+	- Implement a workaround in certificate propagation process for an OpenSC bug concerning event detection by forcing the call to C_GetSlotList when a card/reader is removed
+	- Implement a workaround for a bug in OpenSC around certain type of event detection that made OpenSC unaware of some card insertions
+	- Remove PIN hash caching in the ias driver that has many potential flaws
+	
+Changes between 1.0.4 and 1.0.5 (January 3rd 2012)	
+	- Correct crash in OTLvCertProp.exe in case the MY certificate store contains a CERT_CONTEXT entry with a malformed CRYPT_KEY_PROV_INFO property (e.g pwszProvName is NULL).
+		- Detected on machines where Microsoft Zune software is installed.
+
+Changes between 1.0.3 and 1.0.4 (January 2nd 2012)
+	- Development of OTLvCertProp.exe which implements certificates loading/unloading from the Latvia e-ID cards to the system's MY certificate store.
+	
+Changes between 1.0.2 and 1.0.3 (December 26th 2011)	
+	- Modify PIN dialogs handling in order to be able to distinguish between normal PIN and signature PIN.
+	- The PIN entry fields accept only ASCII-numeric as specified in the card profile.
+	- Added support for SHA-256 in the CSP
+	- Fixed a bug in OpenSC's PKCS#11 when signing with CKM_SHA1_RSA or CKM_SHA256_RSA and which was giving a false result.
+	- Improved error management in the CSP. Fixed some memory leaks.	
+	- Translate all CSP dialogs to Latvian.
+	
+Changes between 1.0.1 and 1.0.2 (December 23rd 2011)		
+	- Add 64-bit binaries of the CSP and PKCS#11 modules.
+	- Fixed OpenSC bug on logout implementation (function iasecc_logout) that made C_Login fail and could cause blocking of the card PIN
+    - Add support for all sizes of PIN in CSP.
+	- Better management of PIN caching in the CSP.
+	- Better smart card events management in the CSP.
+	- Many minor modifications.
+	
+First release 1.0.1 (December 21st 2011)
+	- Modify the OpenSC 0.12.2 in order to support Latvia e-ID smart card (ATR, Pin encoding...)
+	- Correct crash in OpenSC (simclist.c)
+	- Implement the first version of CSP for Latvia e-ID that uses the PKCS#11 in order to access the cards.
+	- First version of 32-bit setup that packages the CSP and the PKCS#11 modules (using Inno Setup).

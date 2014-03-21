@@ -1,0 +1,37 @@
+#!/bin/bash
+
+if !([ -e "/usr/lib/otlv-pkcs11.so" ])
+then
+	ln -s /Library/latvia-eid/lib/otlv-pkcs11.so /usr/lib/otlv-pkcs11.so
+fi
+if !([ -e "/usr/lib/otlv-pkcs11.dylib" ])
+then
+	ln -s /Library/latvia-eid/lib/otlv-pkcs11.dylib /usr/lib/otlv-pkcs11.dylib
+fi
+if !([ -e "/Library/latvia-eid/lib/libcrypto.dylib" ])
+then
+	ln -s /Library/latvia-eid/lib/libcrypto.0.9.8.dylib /Library/latvia-eid/lib/libcrypto.dylib
+fi
+if !([ -e "/Library/latvia-eid/lib/libssl.dylib" ])
+then
+	ln -s /Library/latvia-eid/lib/libssl.0.9.8.dylib /Library/latvia-eid/lib/libssl.dylib
+fi
+if [ -e "/Library/latvia-eid/etc/latvia-eid.conf.md5" ]
+then
+	read cs_fromfile file < "/Library/latvia-eid/etc/latvia-eid.conf.md5"
+	cs_calculated=$( md5 -q "/Library/latvia-eid/etc/latvia-eid.conf")
+	if [ "$cs_fromfile" = "$cs_calculated" ]
+	then
+		mv /Library/latvia-eid/etc/latvia-eid.conf.orig /Library/latvia-eid/etc/latvia-eid.conf
+		md5 -r /Library/latvia-eid/etc/latvia-eid.conf  > /Library/latvia-eid/etc/latvia-eid.conf.md5
+	fi
+else
+	mv /Library/latvia-eid/etc/latvia-eid.conf.orig /Library/latvia-eid/etc/latvia-eid.conf
+	md5 -r /Library/latvia-eid/etc/latvia-eid.conf  > /Library/latvia-eid/etc/latvia-eid.conf.md5
+fi
+for f in /Library/latvia-eid/bin/*
+do
+	ln -sf $f /usr/local/bin
+done
+
+exit 0

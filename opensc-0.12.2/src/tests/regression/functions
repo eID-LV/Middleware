@@ -1,0 +1,361 @@
+#!/bin/bash
+#
+# Functions for the regression test scripts
+#
+
+if [ -z "$__p15init__" ]; then
+	__p15init__=1
+
+	p15base=${P15_BASE:-../..}
+	p15temp=${P15_TEMP:-./test-data}
+
+	if [ "$1" == "--installed" ]
+	then
+		osctool=opensc-tool
+		p15crypt=pkcs15-crypt
+		p15tool=pkcs15-tool
+		p15init=pkcs15-init
+		p11tool=pkcs11-tool
+		p11module=/usr/lib/opensc-pkcs11.so
+		p15log=$p15temp/test.log
+		terrlog=$p15temp/terror.log
+		shift
+	else
+		osctool=$p15base/tools/opensc-tool
+		p15crypt=$p15base/tools/pkcs15-crypt
+		p15tool=$p15base/tools/pkcs15-tool
+		p15init=$p15base/tools/pkcs15-init
+		p15dump=$p15base/tests/p15dump
+		p11tool=$p15base/tools/pkcs11-tool
+		p11module=$p15base/pkcs11/.libs/opensc-pkcs11.so
+		p15log=$p15temp/test.log
+		terrlog=$p15temp/terror.log
+	
+		for bin in $osctool $p15tool $p15crypt $p15init $p11tool; do
+			test -x $bin && continue
+			echo "*** Missing binary $bin" >&2
+			exit 1
+		done
+	fi
+
+	# Eat any arguments given on the command line
+	while [ $# -ne 0 ]; do
+		case $1 in
+		--*)	var=`expr "$1" : '--\(.*\)'|tr - _`
+			eval opt_$var=true;;
+		esac
+
+		case $1 in
+		-T|--use-default-transport-keys|\
+		--no-prompt|\
+		--soft|\
+		-v*)
+			p15init="$p15init $1";;
+		--reader)
+			P15_READER=$2
+			shift;;
+		*)	echo "Unexpected option $1" >&2
+			exit 1;;
+		esac
+		shift
+	done
+
+	if test "$P15_READER"; then
+		p15crypt="$p15crypt --reader $P15_READER"
+		p15tool="$p15tool --reader $P15_READER"
+		p15init="$p15init --reader $P15_READER"
+		osctool="$osctool --reader $P15_READER"
+	fi
+
+	# Get terminal control sequences
+	if false && tty >/dev/null 2>&1; then
+		__red=`tput setaf 1`
+		__green=`tput setaf 2`
+		__black=`tput setaf 0`
+	else
+		__red=
+		__green=
+		__black=
+	fi
+
+	test_failed=false
+
+	function atexit {
+
+		if ! $test_failed; then
+			test "$p15temp" && rm -rf $p15temp
+			msg <<-EOF
+			:::
+			::: ${__green}Test set completed successfully${__black}
+			:::
+EOF
+		fi
+	}
+
+	mkdir -p $p15temp
+	trap atexit 0 1 2 13 15
+
+	# Redirect output to log file, but keep copies of
+	# stdout/stderr descriptors on fd 3 and 4
+	exec 3>&1 4>&2 >$p15log 2>&1
+fi
+
+# Clobber log file
+cp /dev/null $p15log
+
+function msg {
+
+	if [ $# -eq 0 ]; then
+		# This is a here script
+		cat >&3
+	else
+		echo "::: $*" >&3
+	fi
+}
+
+function yesno {
+
+	while true; do
+		echo -n "$* [y/n]" >&3
+		read -n 1 ans
+		echo >&3
+
+		case $ans in
+		[yY])	return 0;;
+		[nN])	return 1;;
+		esac
+		echo "*** Answer must be y or n"
+	done
+}
+
+function fail {
+
+	(
+		echo "*** ${__red}$*${__black}"
+		if [ -f $p15log ]; then
+			echo "--- Command output ---"
+			cat $p15log
+		fi
+		echo "--- Test files left in $p15temp ---"
+		ls -a $p15temp
+	) >&4
+	test_failed=true
+	trap ""
+	exit 1
+}
+
+function error {
+
+	echo "*** $*" >&4
+}
+
+function fatal {
+
+	echo "*** $*" >&4
+	exit 1;
+}
+
+function success {
+
+	msg "SUCCESS"
+}
+
+function run_display_output {
+
+	run_check_status "$@" >&3 2>&4
+	return $?
+}
+
+function run_check_status {
+
+	echo ":::::: run_check_status $*" >&3
+	cp /dev/null $p15log
+	if ! "$@" 2> $terrlog; then
+		if [ -n "$suppress_error_msg" ] &&
+		   grep "$suppress_error_msg" $terrlog &> /dev/null ; then
+			msg "The card does not supported the request feature."
+			unset suppress_error_msg
+			return 1
+		else
+			cat $terrlog
+			fail "Command failed (status code $?): $*"
+		fi
+	fi
+}
+
+function run_check_output {
+
+	msg=$1
+	shift
+
+	echo ":::::: run_check_output \"$1\" $*" >&3
+	cp /dev/null $p15log
+	out=`eval "$@" 2>&1`
+
+	# Make sure output makes it to log file
+	echo $out
+
+	case $out in
+	"$msg")	return 0;;
+	*)	fail "Command failed (expected $msg): $*";;
+	esac
+}
+
+function skip_if_card {
+
+	name=`$osctool --name`
+	for __pat in "$@"; do
+		if expr "$name" : "${__pat}.*" >/dev/null; then
+			msg "Detected $name; skipping test"
+			exit 0
+		fi
+	done
+}
+
+function skip_unless_card {
+
+	name=`$osctool --name`
+	for __pat in "$@"; do
+		if expr "$name" : "${__pat}.*" >/dev/null; then
+			return
+		fi
+	done
+	msg "Detected $name; skipping test"
+	exit 1
+}
+
+##################################################################
+#
+# Common pkcs15 functions
+#
+##################################################################
+function p15_init {
+
+	msg <<-EOF
+	:::
+	::: Testing pkcs15-init
+	:::
+	::: The PINs used by this test script (if applicable) are
+	:::   Test SO PIN	999999
+	:::   Test User PIN	0000
+	:::
+EOF
+
+	$p15init --assert-pristine ||
+		fail "This test requires a clean card, please erase existing pkcs15 structure"
+
+	msg "Initializing card ($*)"
+	run_display_output $p15init -C \
+			--label "OpenSC Test Card" \
+			--serial DEADBEEF \
+			$* >&3 >&4
+	success
+}
+
+function p15_erase {
+
+	msg "Erasing card ($*)"
+	run_display_output $p15init --erase \
+			--secret @FF=999999 \
+			"$@" >&3 >&4
+	success
+}
+
+function p15_set_pin {
+
+	msg "Setting user PIN ($*)"
+	run_display_output $p15init -P \
+		--label "Test User PIN" \
+		--pin "0000" --puk "111111" \
+		"$@"
+	success
+
+}
+
+function p15_change_pin {
+
+	msg "Changing user PIN ($*)"
+	run_display_output $p15tool \
+		--change-pin \
+		--pin 0000 \
+		--new-pin 2222 \
+		"$@"
+	success
+}
+
+function p15_unblock_pin {
+
+	msg "Changing user PIN ($*)"
+	run_display_output $p15tool \
+		--unblock-pin \
+		--puk 111111 \
+		--new-pin 2222 \
+		"$@"
+	success
+}
+
+function p15_gen_key {
+
+	type=$1
+	shift
+
+	msg "Generating key ($*)"
+	if run_display_output $p15init -G $type \
+		--pin 0000 \
+		--id 45 \
+		--label "Test User Key" \
+		"$@" ; then 
+		success
+	else
+		return $?
+	fi
+}
+
+function p15_exp_key {
+
+	keyfile=$1
+	shift
+
+	msg "Generating key ($*)"
+	run_display_output $p15tool \
+		--pin 0000 \
+		--read-public-key 45 \
+		--output $p15temp/$keyfile \
+		"$@"
+	success
+}
+
+function p15_store_key {
+
+	keyfile=$1
+	shift
+
+	msg "Storing private key $keyfile ($*)"
+	if run_display_output $p15init -S $keyfile \
+		--pin 0000 \
+		--id 45 \
+		--label "Test User Key" \
+		"$@" ; then
+		success
+	else
+		return $?
+	fi
+}
+
+function p15_crypt {
+
+	run_check_status $p15crypt \
+		--pin 0000 \
+		"$@"
+}
+
+function p15_validate {
+
+	msg "Card contents according to p15tool --dump"
+	run_display_output $p15tool --dump < /dev/null
+	msg "Validating card using pkcs11-tool"
+	run_display_output $p11tool -t --login --pin 0000 \
+		--module $p11module \
+		--slot-label "OpenSC Test Card" $* < /dev/null
+	success
+}

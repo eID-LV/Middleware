@@ -1,0 +1,63 @@
+PREFIX = /Library/latvia-eid
+FULLNAME = Latvia-eID-PinTool
+MACOSX_DEPLOYMENT_TARGET = 10.5
+CXX="g++"
+
+WX_CFLAGS = -I../wxWidgets/lib/wx/include/osx_cocoa-unicode-static-2.9 -I../wxWidgets/include/wx-2.9 -D_FILE_OFFSET_BITS=64 -DwxDEBUG_LEVEL=0 -D__WXMAC__ -D__WXOSX__ -D__WXOSX_COCOA__
+WX_LIBS = -L../wxWidgets/lib -framework IOKit -framework Carbon -framework Cocoa -framework AudioToolbox -framework System -framework OpenGL -framework QuickTime ../wxWidgets/lib/libwx_osx_cocoau-2.9.a -framework WebKit -lwxregexu-2.9 -lwxexpat-2.9 -lwxtiff-2.9 -lwxjpeg-2.9 -lwxpng-2.9 -lwxzlib-2.9 -lpthread -liconv
+
+CXXFLAGSBASE =  -DNDEBUG -I../openssl/include -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -O2  -I. -D_REENTRANT -DLATVIAEID_PREFIX="\"$(PREFIX)\"" $(WX_CFLAGS)
+
+CXXFLAGS = -arch i386 $(CXXFLAGSBASE)
+
+LDFLAGS = -L../openssl/lib -lcrypto -Wl,-syslibroot,/Developer/SDKs/MacOSX10.5.sdk -arch i386 $(WX_LIBS)
+
+SRCS = cryptoki.cpp main.cpp PinTool.cpp
+OBJECTS = $(SRCS:.cpp=.o)
+
+#######################
+# don't modify
+#######################
+bindir = $(PREFIX)/bin
+
+all: $(FULLNAME)
+
+$(FULLNAME): $(OBJECTS)
+	MACOSX_DEPLOYMENT_TARGET=10.5 $(CXX) -o $(FULLNAME) $(OBJECTS) $(LDFLAGS)
+	upx --lzma $(FULLNAME)	
+	cp $(FULLNAME) $(FULLNAME).app/Contents/MacOS/.
+	mkdir -p $(FULLNAME).app/Contents/Resources/help/en/contents
+	cp help/en/help.htm $(FULLNAME).app/Contents/Resources/help/en
+	cp help/en/contents/* $(FULLNAME).app/Contents/Resources/help/en/contents	
+	mkdir -p $(FULLNAME).app/Contents/Resources/help/lv/contents
+	cp help/lv/help.htm $(FULLNAME).app/Contents/Resources/help/lv
+	cp help/lv/contents/* $(FULLNAME).app/Contents/Resources/help/lv/contents
+	cp ../CHANGES.txt $(FULLNAME).app/Contents/Resources		
+	mkdir -p $(FULLNAME).app/Contents/Resources/Languages/lv
+	cp *.mo $(FULLNAME).app/Contents/Resources/Languages/lv/.
+
+	
+-include $(OBJECTS:.o=.d)
+
+.cpp.o:
+	MACOSX_DEPLOYMENT_TARGET=10.5 $(CXX) $(CXXFLAGS) -c $< -o $@
+	MACOSX_DEPLOYMENT_TARGET=10.5 $(CXX) -MM $(CXXFLAGSBASE) $*.cpp > $*.d
+	@mv -f $*.d $*.d.tmp
+	@sed -e 's|.*:|$*.o:|' < $*.d.tmp > $*.d
+	@sed -e 's/.*://' -e 's/\\$$//' < $*.d.tmp | fmt -1 | \
+	  sed -e 's/^ *//' -e 's/$$/:/' >> $*.d
+	@rm -f $*.d.tmp
+
+install: all
+	mkdir -p $(bindir)
+	cp -R $(FULLNAME).app $(bindir)/.	
+	
+uninstall:
+	rm -fr $(bindir)/$(FULLNAME).app
+	
+.PHONY: clean uninstall install
+clean:
+	rm -fr *.o *.d
+	rm -fr $(FULLNAME)
+
+

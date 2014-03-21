@@ -1,0 +1,46 @@
+﻿Build started 2013.05.13. 14:41:38.
+     1>Project "E:\Documents and Settings\brunot\Desktop\src\Trunk\OTLvCSPCore\OTLvCSPCore.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\OTLvCSPCore.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         E:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D OTLVCSPCORE_EXPORTS /D _CRT_SECURE_NO_WARNINGS /D _CRT_NON_CONFORMING_SWPRINTFS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt "csp-debug.cpp" csp11.cpp "pkcs11-helpers.cpp" "pkcs11-services.cpp" "ui-pin.cpp"
+         ui-pin.cpp
+         pkcs11-services.cpp
+         pkcs11-helpers.cpp
+         csp11.cpp
+         csp-debug.cpp
+         Generating Code...
+       ResourceCompile:
+         E:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Debug\OTLvCSPCore.res" OTLvCSPCore.rc 
+       ManifestResourceCompile:
+         E:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\OTLvCSPCore.dll.embed.manifest.res" Debug\OTLvCSPCore_manifest.rc 
+       Link:
+         E:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\bin\Win32\OTLvCSPCore.dll" /INCREMENTAL /NOLOGO winscard.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"OTLvCspCore.def" /MANIFEST /ManifestFile:"Debug\OTLvCSPCore.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Documents and Settings\brunot\Desktop\src\Trunk\bin\Win32\OTLvCSPCore.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\bin\Win32\OTLvCSPCore.lib" /MACHINE:X86 /DLL Debug\OTLvCSPCore.res
+         Debug\OTLvCSPCore.dll.embed.manifest.res
+         "Debug\csp-debug.obj"
+         Debug\csp11.obj
+         "Debug\pkcs11-helpers.obj"
+         "Debug\pkcs11-services.obj"
+         "Debug\ui-pin.obj"
+            Creating library E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\bin\Win32\OTLvCSPCore.lib and object E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\bin\Win32\OTLvCSPCore.exp
+       Manifest:
+         Deleting file "Debug\OTLvCSPCore.dll.embed.manifest".
+         E:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\OTLvCSPCore.dll.embed.manifest" /manifest Debug\OTLvCSPCore.dll.intermediate.manifest
+         E:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\OTLvCSPCore.dll.embed.manifest.res" Debug\OTLvCSPCore_manifest.rc 
+       LinkEmbedManifest:
+         E:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\bin\Win32\OTLvCSPCore.dll" /INCREMENTAL /NOLOGO winscard.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"OTLvCspCore.def" /MANIFEST /ManifestFile:"Debug\OTLvCSPCore.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Documents and Settings\brunot\Desktop\src\Trunk\bin\Win32\OTLvCSPCore.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\bin\Win32\OTLvCSPCore.lib" /MACHINE:X86 /DLL Debug\OTLvCSPCore.res
+         Debug\OTLvCSPCore.dll.embed.manifest.res
+         "Debug\csp-debug.obj"
+         Debug\csp11.obj
+         "Debug\pkcs11-helpers.obj"
+         "Debug\pkcs11-services.obj"
+         "Debug\ui-pin.obj"
+         OTLvCSPCore.vcxproj -> E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\bin\Win32\OTLvCSPCore.dll
+       FinalizeBuildStatus:
+         Deleting file "Debug\OTLvCSPCore.unsuccessfulbuild".
+         Touching "Debug\OTLvCSPCore.lastbuildstate".
+     1>Done Building Project "E:\Documents and Settings\brunot\Desktop\src\Trunk\OTLvCSPCore\OTLvCSPCore.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.37

@@ -1,0 +1,151 @@
+﻿Build started 2013.05.13. 14:41:38.
+     1>Project "E:\Documents and Settings\brunot\Desktop\src\Trunk\OTLvP11\OTLvP11.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\bin\Win32\".
+       InitializeBuildStatus:
+         Touching "Debug\OTLvP11.unsuccessfulbuild".
+       PreBuildEvent:
+         copy "E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\opensc-0.12.2\win32\winconfig.h" "E:\Documents and Settings\brunot\Desktop\src\Trunk\build\config.h"
+         :VCEnd
+                 1 file(s) copied.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+       ManifestResourceCompile:
+         All outputs are up-to-date.
+       Link:
+         E:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\bin\Win32\OTLvP11.dll" /INCREMENTAL /NOLOGO /LIBPATH:"E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\openssl\lib" /LIBPATH:"E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\zlib\lib" libeay32MTd.lib zlibd.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\OTLvP11.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\Documents and Settings\brunot\Desktop\src\Trunk\bin\Win32\OTLvP11.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Documents and Settings\brunot\Desktop\src\Trunk\build\..\bin\Win32\OTLvP11.lib" /MACHINE:X86 /DLL Debug\OTLvP11.res
+         Debug\OTLvP11.dll.embed.manifest.res
+         Debug\compat_getopt.obj
+         Debug\compat_getpass.obj
+         Debug\compat_strlcat.obj
+         Debug\compat_strlcpy.obj
+         Debug\libpkcs11.obj
+         Debug\libscdl.obj
+         Debug\simclist.obj
+         Debug\apdu.obj
+         Debug\asn1.obj
+         Debug\base64.obj
+         "Debug\card-acos5.obj"
+         "Debug\card-akis.obj"
+         "Debug\card-asepcos.obj"
+         "Debug\card-atrust-acos.obj"
+         "Debug\card-authentic.obj"
+         "Debug\card-belpic.obj"
+         "Debug\card-cardos.obj"
+         "Debug\card-default.obj"
+         "Debug\card-entersafe.obj"
+         "Debug\card-flex.obj"
+         "Debug\card-gemsafeV1.obj"
+         "Debug\card-gpk.obj"
+         "Debug\card-ias.obj"
+         "Debug\card-iasecc.obj"
+         "Debug\card-incrypto34.obj"
+         "Debug\card-itacns.obj"
+         "Debug\card-javacard.obj"
+         "Debug\card-jcop.obj"
+         "Debug\card-mcrd.obj"
+         "Debug\card-miocos.obj"
+         "Debug\card-muscle.obj"
+         "Debug\card-myeid.obj"
+         "Debug\card-oberthur.obj"
+         "Debug\card-openpgp.obj"
+         "Debug\card-piv.obj"
+         "Debug\card-rtecp.obj"
+         "Debug\card-rutoken.obj"
+         "Debug\card-setcos.obj"
+         "Debug\card-starcos.obj"
+         "Debug\card-tcos.obj"
+         "Debug\card-westcos.obj"
+         Debug\card.obj
+         Debug\compression.obj
+         Debug\ctbcs.obj
+         Debug\ctx.obj
+         Debug\dir.obj
+         "Debug\ef-atr.obj"
+         Debug\errors.obj
+         "Debug\iasecc-sdo.obj"
+         Debug\iso7816.obj
+         Debug\log.obj
+         "Debug\muscle-filesystem.obj"
+         Debug\muscle.obj
+         "Debug\p15card-helper.obj"
+         Debug\padding.obj
+         "Debug\pkcs15-actalis.obj"
+         "Debug\pkcs15-algo.obj"
+         "Debug\pkcs15-atrust-acos.obj"
+         "Debug\pkcs15-cache.obj"
+         "Debug\pkcs15-cert.obj"
+         "Debug\pkcs15-data.obj"
+         "Debug\pkcs15-esinit.obj"
+         "Debug\pkcs15-esteid.obj"
+         "Debug\pkcs15-gemsafeGPK.obj"
+         "Debug\pkcs15-gemsafeV1.obj"
+         "Debug\pkcs15-infocamere.obj"
+         "Debug\pkcs15-itacns.obj"
+         "Debug\pkcs15-openpgp.obj"
+         "Debug\pkcs15-pin.obj"
+         "Debug\pkcs15-piv.obj"
+         "Debug\pkcs15-postecert.obj"
+         "Debug\pkcs15-prkey.obj"
+         "Debug\pkcs15-pteid.obj"
+         "Debug\pkcs15-pubkey.obj"
+         "Debug\pkcs15-sec.obj"
+         "Debug\pkcs15-starcert.obj"
+         "Debug\pkcs15-syn.obj"
+         "Debug\pkcs15-tccardos.obj"
+         "Debug\pkcs15-tcos.obj"
+         Debug\pkcs15.obj
+         "Debug\reader-ctapi.obj"
+         "Debug\reader-openct.obj"
+         "Debug\reader-pcsc.obj"
+         Debug\sc.obj
+         Debug\sec.obj
+         Debug\debug.obj
+         "Debug\framework-pkcs15.obj"
+         "Debug\framework-pkcs15init.obj"
+         "Debug\hack-disabled.obj"
+         Debug\mechanism.obj
+         Debug\misc.obj
+         Debug\openssl.obj
+         "Debug\pkcs11-display.obj"
+         "Debug\pkcs11-global.obj"
+         "Debug\pkcs11-object.obj"
+         "Debug\pkcs11-session.obj"
+         Debug\slot.obj
+         "Debug\pkcs15-asepcos.obj"
+         "Debug\pkcs15-authentic.obj"
+         "Debug\pkcs15-cardos.obj"
+         "Debug\pkcs15-cflex.obj"
+         "Debug\pkcs15-entersafe.obj"
+         "Debug\pkcs15-gpk.obj"
+         "Debug\pkcs15-iasecc.obj"
+         "Debug\pkcs15-incrypto34.obj"
+         "Debug\pkcs15-jcop.obj"
+         "Debug\pkcs15-lib.obj"
+         "Debug\pkcs15-miocos.obj"
+         "Debug\pkcs15-muscle.obj"
+         "Debug\pkcs15-myeid.obj"
+         "Debug\pkcs15-oberthur-awp.obj"
+         "Debug\pkcs15-oberthur.obj"
+         "Debug\pkcs15-rtecp.obj"
+         "Debug\pkcs15-rutoken.obj"
+         "Debug\pkcs15-setcos.obj"
+         "Debug\pkcs15-starcos.obj"
+         "Debug\pkcs15-westcos.obj"
+         Debug\profile.obj
+         Debug\parse.obj
+         Debug\scconf.obj
+         Debug\sclex.obj
+         Debug\write.obj
+         "Debug\pkcs15-oberthur-libopensc.obj"
+         "Debug\pkcs15-westcos-libopensc.obj"
+     1>LINK : fatal error LNK1104: cannot open file 'libeay32MTd.lib'
+     1>Done Building Project "E:\Documents and Settings\brunot\Desktop\src\Trunk\OTLvP11\OTLvP11.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.14

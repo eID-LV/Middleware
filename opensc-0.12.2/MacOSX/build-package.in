@@ -1,0 +1,181 @@
+#!/bin/bash
+set -ex
+OSX_RELEASE=${1:-10.6}
+INTEL_ONLY=${INTEL_ONLY:-no}
+test -x ./configure || ./bootstrap
+BUILDPATH=${PWD}
+case ${OSX_RELEASE} in
+	"10.5")
+		if test ${INTEL_ONLY} = "yes"; then
+			export CFLAGS="-I$(PWD)/../openssl/include -isysroot /Developer/SDKs/MacOSX10.5.sdk -arch i386 -mmacosx-version-min=10.5 -g"
+			export LDFLAGS="-L$(PWD)/../openssl/lib -lcrypto -Wl,-syslibroot,/Developer/SDKs/MacOSX10.5.sdk -arch i386"
+			MACOSX_DEPLOYMENT_TARGET=10.5
+			export MACOSX_DEPLOYMENT_TARGET=10.5
+		else
+			export CFLAGS="-I$(PWD)/../openssl/include -isysroot /Developer/SDKs/MacOSX10.5.sdk -arch i386 -arch ppc -mmacosx-version-min=10.5 -g"
+			export LDFLAGS="-L$(PWD)/../openssl/lib -lcrypto -Wl,-syslibroot,/Developer/SDKs/MacOSX10.5.sdk -arch i386 -arch ppc"
+			MACOSX_DEPLOYMENT_TARGET=10.5
+			export MACOSX_DEPLOYMENT_TARGET=10.5			
+		fi
+	;;
+	"10.6")
+		export CFLAGS="-I$(PWD)/../openssl/include -isysroot /Developer/SDKs/MacOSX10.6.sdk -arch i386 -arch x86_64 -mmacosx-version-min=10.6 -g"
+		export LDFLAGS="-L$(PWD)/../openssl/lib -lcrypto -Wl,-syslibroot,/Developer/SDKs/MacOSX10.6.sdk -arch x86_64 -arch i386"
+		MACOSX_DEPLOYMENT_TARGET=10.6
+		export MACOSX_DEPLOYMENT_TARGET=10.6
+	;;
+	*)
+		echo "OSX ${OSX_RELEASE} is not supported!"
+		exit 1
+	;;
+esac
+
+PATH=$PATH:/usr/local/git/bin
+export SED=/usr/bin/sed
+PREFIX=/Library/latvia-eid
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig
+DYLD_LIBRARY_PATH=${PWD}/../openssl/lib
+export DYLD_LIBRARY_PATH
+
+OPENSSL_CFLAGS="-I$(PWD)/../openssl/include"
+OPENSSL_LIBS="-L$(PWD)/../openssl/lib -lcrypto"
+export OPENSSL_CFLAGS
+export OPENSSL_LIBS
+
+# In case of OSX 10.5, link against static libltdl to work around
+# missing libltdl.3.dylib in 10.5 PPC version
+test ${OSX_RELEASE} = "10.5" && export LTLIB_LIBS="/Developer/SDKs/MacOSX10.5.sdk/usr/lib/libltdl.a"
+
+make clean
+./configure --prefix=$PREFIX \
+--sysconfdir=$PREFIX/etc \
+--disable-dependency-tracking \
+--enable-shared \
+--disable-static \
+--enable-strict \
+--disable-assert
+
+
+# check if make install is required
+case "${OSX_RELEASE}" in
+	"10.5") if test ${INTEL_ONLY} = "yes"; then required_arch="i386"; else required_arch="ppc7400"; fi ;;
+	"10.6") required_arch="x86_64" ;;
+esac
+
+if !(test -e src/libopensc/.libs/libotlv-opensc.dylib && (file src/libopensc/.libs/libotlv-opensc.dylib | grep $required_arch)); then
+	make clean
+fi
+
+# compile
+make -j 2
+
+# copy files
+rm -rf target
+make install DESTDIR=${BUILDPATH}/target
+
+# remove garbage
+rm -f target/Library/latvia-eid/lib/*.la
+rm -f target/Library/latvia-eid/share/Latvia-eID-Middleware/*.profile
+
+# generate .bundle (required by Adobe Acrobat)
+./MacOSX/libtool-bundle target/Library/latvia-eid/lib/otlv-pkcs11.so target/Library/latvia-eid/lib
+
+cp target/Library/latvia-eid/lib/otlv-pkcs11.so target/Library/latvia-eid/lib/otlv-pkcs11.dylib
+cp ../latvia-eid.conf.nix target/Library/latvia-eid/etc/latvia-eid.conf
+cp ../openssl/lib/libcrypto.0.9.8.dylib target/Library/latvia-eid/lib/.
+cp ../openssl/lib/libssl.0.9.8.dylib target/Library/latvia-eid/lib/.
+
+mkdir -p target/Library/latvia-eid/share/Latvia-eID-Middleware/
+cp ../CHANGES target/Library/latvia-eid/share/Latvia-eID-Middleware/.
+
+
+if test ${OSX_RELEASE} = "10.6"; then
+	# Build libp11+engine_pkcs11. Attention! Uses modified branches from github!
+	# test -d libp11 || git clone http://github.com/martinpaljak/libp11.git -b martin
+	(cd libp11
+	test -x configure || ./bootstrap
+	./configure --enable-static --disable-shared --disable-dependency-tracking --prefix=${BUILDPATH}/build && make && make install
+	cd ..)
+	# test -d engine_pkcs11 || git clone http://github.com/martinpaljak/engine_pkcs11.git -b martin
+	(cd engine_pkcs11
+	git checkout origin/martin
+	test -x configure || ./bootstrap
+	PKG_CONFIG_PATH=${BUILDPATH}/build/lib/pkgconfig:${PKG_CONFIG_PATH} ./configure --disable-dependency-tracking --prefix=/Library/latvia-eid && make
+	make install DESTDIR=${BUILDPATH}/target)
+fi
+
+# if ! test -e OpenSC.tokend; then
+#	git clone http://github.com/martinpaljak/OpenSC.tokend.git
+# fi
+
+# refresh remote branches, in case the script has changed the active branch and existing buildslave checkout is used.
+# git --git-dir OpenSC.tokend/.git --work-tree OpenSC.tokend fetch --all
+
+case "${OSX_RELEASE}" in
+	"10.5") git --git-dir OpenSC.tokend/.git --work-tree OpenSC.tokend checkout --force 10.5-0.12.2; rm -rf OpenSC.tokend/build
+		if test ${INTEL_ONLY} = "yes"; then
+			sed -e 's/ ppc7400//g' OpenSC.tokend/Tokend.xcodeproj/project.pbxproj > project.tmp
+			mv project.tmp OpenSC.tokend/Tokend.xcodeproj/project.pbxproj
+		fi
+	;;
+	"10.6") git --git-dir OpenSC.tokend/.git --work-tree OpenSC.tokend checkout --force 10.6-0.12.2; rm -rf OpenSC.tokend/build ;;
+esac
+
+if ! test -e build-${OSX_RELEASE}.tar.gz; then
+	case ${OSX_RELEASE} in
+	"10.5")
+		curl http://martinpaljak.net/download/build-10.5.tar.gz -o build-${OSX_RELEASE}.tar.gz
+	;;
+	"10.6")
+		curl http://martinpaljak.net/download/build-10.6.tar.gz -o build-${OSX_RELEASE}.tar.gz
+	;;
+	esac
+fi
+
+# Unpack the binary building components
+if ! test -e OpenSC.tokend/build; then
+	tar -C OpenSC.tokend -xzvf build-${OSX_RELEASE}.tar.gz
+fi
+
+# Create the symlink to OpenSC sources
+test -L OpenSC.tokend/build/opensc-src || ln -sf ${BUILDPATH}/src OpenSC.tokend/build/opensc-src
+
+# build and copy OpenSC.tokend
+xcodebuild -configuration Deployment -project OpenSC.tokend/Tokend.xcodeproj
+mkdir -p target/System/Library/Security/tokend
+cp -R OpenSC.tokend/build/OTLVID.tokend target/System/Library/Security/tokend/.
+rm -fr target/System/Library/Security/tokend/OTLVID.tokend/Contents/MacOS/OTLVID_debug
+
+# Build PinTool
+cd ../PinTool
+make -f Makefile.osx clean
+make -f Makefile.osx
+
+cd ../opensc-0.12.2
+
+# The "UnInstaller"
+mkdir -p target/usr/local/bin
+cp MacOSX/opensc-uninstall target/usr/local/bin/latvia-eid-uninstall
+
+mkdir -p target/Applications
+cp -R ../PinTool/Latvia-eID-PinTool.app target/Applications/.
+rm -fr `find target/Applications/Latvia-eID-PinTool.app | grep .svn`
+
+# Build installer package
+/Developer/Applications/Utilities/PackageMaker.app/Contents/MacOS/PackageMaker \
+-r target \
+-o Latvia-eid-middleware_1.1.0-${OSX_RELEASE}.pkg \
+-t "Latvia-eid Middleware 1.1.0 for Mac OS X ${OSX_RELEASE}" \
+-i org.latvia-eid.mac \
+-n "1.1.0" \
+-g 10.4 \
+-b \
+-v \
+--no-relocate \
+-e MacOSX/${OSX_RELEASE}/resources \
+-s MacOSX/${OSX_RELEASE}/scripts
+
+# Create .dmg
+rm -f Latvia-eid-middleware_1.1.0-${OSX_RELEASE}.dmg
+TIMESTAMP=$(date +%Y.%m.%d)
+hdiutil create -srcfolder Latvia-eid-middleware_1.1.0-${OSX_RELEASE}.pkg -volname "Latvia-eid Middleware 1.1.0 for Mac OS X ${OSX_RELEASE} (${TIMESTAMP})" Latvia-eid-middleware_1.1.0-${OSX_RELEASE}.dmg

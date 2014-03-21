@@ -1,0 +1,615 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PinTool\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-25 11:16+0100\n"
+"PO-Revision-Date: 2012-04-25 11:17+0100\n"
+"Last-Translator: Mounir IDRASSI <mounir.idrassi@idrix.fr>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Latvian\n"
+"X-Poedit-Country: LATVIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: cryptoki.cpp:284
+msgid "No error"
+msgstr "Nav kļūdu"
+
+#: main.cpp:403
+#: main.cpp:505
+#: PinTool.cpp:338
+msgid "Change PIN2"
+msgstr "Mainīt PIN2"
+
+#: main.cpp:405
+msgid "Please type the current PIN2 and the new PIN2 twice using the pinpad"
+msgstr "Lūdzu ievadiet pašreizējo PIN2 kodu un jauno PIN2 divreiz izmantojot pinpad"
+
+#: main.cpp:408
+#: main.cpp:512
+#: main.cpp:1579
+#: main.cpp:1586
+#: main.cpp:1587
+#: main.cpp:1611
+#: main.cpp:1612
+#: main.cpp:1626
+#: main.cpp:1627
+#: main.cpp:1637
+#: main.cpp:1638
+#: main.cpp:1669
+#: main.cpp:1670
+#: main.cpp:1684
+#: main.cpp:1685
+#: main.cpp:1699
+#: main.cpp:1700
+#: main.cpp:1704
+#: main.cpp:1705
+#: main.cpp:1773
+#: main.cpp:1778
+#: main.cpp:1823
+#: main.cpp:1826
+msgid "PIN2"
+msgstr "PIN2"
+
+#: main.cpp:408
+#: main.cpp:512
+#: main.cpp:1579
+#: main.cpp:1586
+#: main.cpp:1587
+#: main.cpp:1611
+#: main.cpp:1612
+#: main.cpp:1626
+#: main.cpp:1627
+#: main.cpp:1637
+#: main.cpp:1638
+#: main.cpp:1669
+#: main.cpp:1670
+#: main.cpp:1684
+#: main.cpp:1685
+#: main.cpp:1699
+#: main.cpp:1700
+#: main.cpp:1704
+#: main.cpp:1705
+#: main.cpp:1773
+#: main.cpp:1778
+#: main.cpp:1823
+#: main.cpp:1826
+msgid "PIN1"
+msgstr "PIN1"
+
+#: main.cpp:507
+msgid "Current PIN2 : "
+msgstr "Pašreizējais PIN2:"
+
+#: main.cpp:508
+#: main.cpp:620
+msgid "New PIN2 : "
+msgstr "Jaunais PIN2:"
+
+#: main.cpp:509
+#: main.cpp:621
+msgid "Confirm New PIN2 : "
+msgstr "Atkārtojiet jauno PIN2:"
+
+#: main.cpp:530
+#: main.cpp:641
+#: main.cpp:1911
+#: main.cpp:2169
+msgid "Warning"
+msgstr "Brīdinājums"
+
+#: main.cpp:556
+#: main.cpp:618
+#: PinTool.cpp:343
+msgid "Unblock PIN2"
+msgstr "Atbloķēt PIN2"
+
+#: main.cpp:557
+msgid "Please type the PUK and the new PIN2 twice using the pinpad"
+msgstr "Lūdzu ievadiet PUK kodu un jauno PIN2 divreiz izmantojot pinpad"
+
+#: main.cpp:663
+msgid "{No Prefered Reader}"
+msgstr "{Nav izvēlēts primārais lasītājs}"
+
+#: main.cpp:908
+#: main.cpp:925
+#, c-format
+msgid "Error \"%s\" occured while looking for inserted smart cards."
+msgstr "Meklējot ievietotās viedkartes, radās kļūda \"%s\"."
+
+#: main.cpp:914
+msgid "No smart card detected on your machine"
+msgstr "Ierīcē nav konstatēta neviena viedkarte"
+
+#: main.cpp:936
+msgid ""
+"There are several cards inserted.\n"
+"Either leave only one card or choose the reader to use from the \"Settings\" menu"
+msgstr ""
+"Ir ievietotas vairākas kartes.\n"
+"Vai nu atstājiet tikai vienu karti, vai izvēlnē \"Iestatījumi\" izvēlēties izmantojamo lasītāju"
+
+#: main.cpp:960
+#, c-format
+msgid ""
+"No card has been found on the selected reader \"%s\".\n"
+"Please insert a card or change your favorite reader in the \"Setting\" menu."
+msgstr ""
+"Izvēlētajā lasītājā \"%s\" nav nevienas kartes.\n"
+"Lūdzu, ievietojiet karti vai izvēlnē \"Iestatījumi\" mainiet savu primāro lasītāju."
+
+#: main.cpp:974
+#, c-format
+msgid "Connected to \"%s\""
+msgstr "Savienots ar \"%s\""
+
+#: main.cpp:1002
+#: main.cpp:1015
+#, c-format
+msgid "Error %s occured while reading card information"
+msgstr "Nolasot kartes informāciju, radās kļūda %s"
+
+#: main.cpp:1035
+#, c-format
+msgid "Error %s occured while opening a session on the smart card"
+msgstr "Atverot viedkartes sesiju, radās kļūda %s"
+
+#: main.cpp:1064
+msgid "No Authentication or Ciphering certificate found on the card"
+msgstr "Kartē nav atrasts neviens autentifikācijas vai šifrēšanas sertifikāts"
+
+#: main.cpp:1084
+#: main.cpp:1597
+#: main.cpp:1660
+#: main.cpp:1742
+#: main.cpp:1798
+#, c-format
+msgid "Error \"%s\" occured while opening a session on the smart card"
+msgstr "Atverot viedkartes sesiju, radās kļūda  \"%s\""
+
+#: main.cpp:1114
+msgid "No Signature certificate found on the card"
+msgstr "Kartē nav atrasts neviens paraksta sertifikāts"
+
+#: main.cpp:1186
+#: main.cpp:1196
+msgid "Failed to read certificate from the card"
+msgstr "Neizdevās nolasīt sertifikātu no kartes"
+
+#: main.cpp:1207
+msgid "Invalid certificate found on the card"
+msgstr "Kartē atrasts nederīgs sertifikāts"
+
+#: main.cpp:1377
+#: main.cpp:1881
+msgid "Not connected"
+msgstr "Nav savienots"
+
+#: main.cpp:1513
+#, c-format
+msgid "Please choose where to save the %s certificate"
+msgstr "Lūdzu, izvēlieties, kur saglabāt %s sertifikātu"
+
+#: main.cpp:1517
+msgid "DER binary certificate (*.cer)|*.cer|BASE-64 certificate (*.crt;*.pem)|*.crt;*.pem"
+msgstr "DER binārais sertifikāts (*.cer)|*.cer|BASE-64 sertifikāts (*.crt;*.pem)|*.crt;*.pem"
+
+#: main.cpp:1535
+#: main.cpp:1554
+#, c-format
+msgid ""
+"Failed to write the %s certificate to the selected file.\n"
+"Please check disk permissions"
+msgstr ""
+"Neizdevās ierakstīt %s sertifikātu izvēlētajā failā.\n"
+"Lūdzu, pārbaudiet diska atļaujas."
+
+#: main.cpp:1563
+msgid "authentication"
+msgstr "autentifikācijas"
+
+#: main.cpp:1567
+msgid "signature"
+msgstr "paraksta"
+
+#: main.cpp:1571
+msgid "ciphering"
+msgstr "šifrēšanas"
+
+#: main.cpp:1586
+#, c-format
+msgid "%s of the card is blocked"
+msgstr "Kartes %s ir bloķēts"
+
+#: main.cpp:1612
+#: main.cpp:1670
+#, c-format
+msgid ""
+"The current %s your entered is incorrect.\n"
+"Do you want to retry?"
+msgstr ""
+"Pašreizējais %s, ko ievadījāt, ir nepareizs.\n"
+"Vai vēlaties mēģināt vēlreiz?"
+
+#: main.cpp:1626
+#: main.cpp:1684
+#, c-format
+msgid "The %s of the card is locked."
+msgstr "Kartes %s ir bloķēts."
+
+#: main.cpp:1637
+#: main.cpp:1704
+#, c-format
+msgid "Error \"%s\" while changing %s of the card"
+msgstr "Mainot kartes %s, radās kļūda \"%s\""
+
+#: main.cpp:1689
+#, c-format
+msgid "Error \"%s\" while authenticating to the card"
+msgstr "Veicot kartes autentifikāciju, radās kļūda \"%s\""
+
+#: main.cpp:1699
+#, c-format
+msgid "%s has been changed successfully"
+msgstr "%s ir sekmīgi nomainīts"
+
+#: main.cpp:1732
+msgid "PUK of the card is blocked"
+msgstr "Kartes PUK kods ir bloķēts"
+
+#: main.cpp:1755
+#: main.cpp:1804
+msgid ""
+"The PUK your entered is incorrect.\n"
+"Do you want to retry?"
+msgstr ""
+"Ievadītais PUK kods ir nepareizs.\n"
+"Vai vēlaties mēģināt vēlreiz?"
+
+#: main.cpp:1763
+#: main.cpp:1812
+msgid "The PUK of the card is locked."
+msgstr "Kartes PUK kods ir bloķēts."
+
+#: main.cpp:1773
+#: main.cpp:1826
+#, c-format
+msgid "Error \"%s\" while unblocking %s of the card"
+msgstr "Atbloķējot kartes %s, radās kļūda \"%s\""
+
+#: main.cpp:1778
+#: main.cpp:1823
+#, c-format
+msgid "%s has been unblocked successfully"
+msgstr "%s ir sekmīgi atbloķēts"
+
+#: main.cpp:1782
+msgid "Your PinPAD doesn't support PIN modification"
+msgstr "Jūsu PinPAD neatbalsta PIN grozīšanu"
+
+#: main.cpp:1816
+#, c-format
+msgid "Error \"%s\" while verifying the PUK of the card"
+msgstr "Pārbaudot kartes PUK kodu, radās kļūda \"%s\""
+
+#: main.cpp:1921
+msgid "Error"
+msgstr "Kļūda"
+
+#: main.cpp:1926
+msgid "Information"
+msgstr "Informācija"
+
+#: main.cpp:1954
+#, c-format
+msgid ""
+"The PKCS#11 module couldn't be loaded. Please check your installation.\n"
+"Error 0x%.8X"
+msgstr ""
+"PKCS#11 moduli nevarēja ielādēt. Lūdzu, pārbaudiet instalāciju.\n"
+"Kļūda 0x%.8X"
+
+#: main.cpp:1959
+#, c-format
+msgid ""
+"The PKCS#11 module couldn't be loaded. Please check your installation.\n"
+"Error %s"
+msgstr ""
+"PKCS#11 moduli nevarēja ielādēt. Lūdzu, pārbaudiet instalāciju.\n"
+"Kļūda %s"
+
+#: main.cpp:1971
+msgid "\"C_GetFunctionList\" Entry point missing from the PKCS#11 dll. Please check your installation."
+msgstr "\"C_GetFunctionList\" Trūkst PKCS#11 dll ieejas punkta. Lūdzu, pārbaudiet instalāciju."
+
+#: main.cpp:1982
+#, c-format
+msgid "C_GetFunctionList failed with error %s. Please check your installation."
+msgstr "C_GetFunctionList neizdevās ar kļūdu %s. Lūdzu, pārbaudiet instalāciju."
+
+#: main.cpp:2011
+#, c-format
+msgid "Error %s occured while initilizing the PKCS#11 module."
+msgstr "Inicializējot PKCS#11 moduli, radās kļūda %s."
+
+#: main.cpp:2028
+#: PinTool.cpp:42
+msgid "Connect to a card reader"
+msgstr "Izveidot savienojumu ar karšu lasītāju"
+
+#: main.cpp:2029
+#: PinTool.cpp:50
+msgid "Help                                 "
+msgstr "Palīdzība                                 "
+
+#: main.cpp:2154
+msgid "PinTool"
+msgstr "PinRīks"
+
+#: main.cpp:2169
+msgid "PinTool is already running"
+msgstr "PinRīks jau ir palaists"
+
+#: PinTool.cpp:62
+msgid "Welcome"
+msgstr "Laipni lūdzam!"
+
+#: PinTool.cpp:82
+#: PinTool.cpp:215
+msgid "Authentication Certificate"
+msgstr "Autentifikācijas sertifikāts"
+
+#: PinTool.cpp:88
+#: PinTool.cpp:228
+#: PinTool.cpp:368
+msgid "Issued to"
+msgstr "Persona, kam sertifikāts izsniegts"
+
+#: PinTool.cpp:101
+#: PinTool.cpp:241
+#: PinTool.cpp:381
+msgid "First Name :"
+msgstr "Vārds :"
+
+#: PinTool.cpp:110
+#: PinTool.cpp:250
+#: PinTool.cpp:390
+msgid "Last Name :"
+msgstr "Uzvārds :"
+
+#: PinTool.cpp:119
+#: PinTool.cpp:259
+#: PinTool.cpp:399
+msgid "Personal Number :"
+msgstr "Personas kods:"
+
+#: PinTool.cpp:131
+#: PinTool.cpp:271
+#: PinTool.cpp:411
+msgid "Issued by"
+msgstr "Izsniedzējs"
+
+#: PinTool.cpp:144
+#: PinTool.cpp:284
+#: PinTool.cpp:424
+msgid "Authority Name :"
+msgstr "Iestādes nosaukums:"
+
+#: PinTool.cpp:156
+#: PinTool.cpp:296
+#: PinTool.cpp:436
+msgid "Validity"
+msgstr "Derīgums"
+
+#: PinTool.cpp:169
+#: PinTool.cpp:309
+#: PinTool.cpp:449
+msgid "From :"
+msgstr "no :"
+
+#: PinTool.cpp:178
+#: PinTool.cpp:318
+#: PinTool.cpp:458
+msgid "To: "
+msgstr "līdz : "
+
+#: PinTool.cpp:193
+#: PinTool.cpp:333
+#: PinTool.cpp:473
+msgid "Export Certificate"
+msgstr "Eksportēt sertifikātu"
+
+#: PinTool.cpp:198
+#: PinTool.cpp:478
+#: PinTool.h:213
+#: PinTool.h:298
+msgid "Change PIN1"
+msgstr "Mainīt PIN1"
+
+#: PinTool.cpp:203
+#: PinTool.cpp:483
+#: PinTool.h:245
+#: PinTool.h:321
+msgid "Unblock PIN1"
+msgstr "Atbloķēt PIN1"
+
+#: PinTool.cpp:222
+#: PinTool.cpp:355
+msgid "Signature Certificate"
+msgstr "Paraksta sertifikāts"
+
+#: PinTool.cpp:362
+#: PinTool.cpp:495
+msgid "Ciphering Certificate"
+msgstr "Šifrēšanas sertifikāts"
+
+#: PinTool.cpp:509
+msgid "Card Information"
+msgstr "Kartes informācija"
+
+#: PinTool.cpp:525
+msgid "Card Reader"
+msgstr "Karšu lasītājs"
+
+#: PinTool.cpp:525
+msgid "Select your prefered smart card reader"
+msgstr "Izvēlieties vēlamo viedkaršu lasītāju"
+
+#: PinTool.cpp:535
+msgid "English"
+msgstr "Angļu"
+
+#: PinTool.cpp:535
+msgid "Choose English as a display language"
+msgstr "Izvēlēties angļu valodu kā saskarnes valodu"
+
+#: PinTool.cpp:544
+msgid "Latvian"
+msgstr "Latviešu"
+
+#: PinTool.cpp:544
+msgid "Choose Latvian as a display language"
+msgstr "Izvēlēties latviešu valodu kā saskarnes valodu"
+
+#: PinTool.cpp:552
+msgid "Language"
+msgstr "Valoda"
+
+#: PinTool.cpp:557
+msgid "Exit"
+msgstr "Iziet"
+
+#: PinTool.cpp:557
+msgid "Exit Latvia eID PinTool"
+msgstr "Iziet no Latvijas eID PinRīka"
+
+#: PinTool.cpp:565
+msgid "Settings"
+msgstr "Iestatījumi"
+
+#: PinTool.cpp:569
+msgid "Help Contents"
+msgstr "Palīdzības saturs"
+
+#: PinTool.cpp:569
+msgid "Display help for Latvia eID PinTool"
+msgstr "Parādīt Latvijas eID PinRīka palīdzību"
+
+#: PinTool.cpp:578
+msgid "Logs"
+msgstr "žurnāli"
+
+#: PinTool.cpp:578
+msgid "Display logs for Latvia eID PinTool"
+msgstr "Parādīt Latvijas eID PinRīka žurnālu"
+
+#: PinTool.cpp:587
+msgid "About"
+msgstr "Par"
+
+#: PinTool.cpp:587
+msgid "About Latvia eID PinTool"
+msgstr "Par Latvijas eID PinRīku"
+
+#: PinTool.cpp:595
+msgid "Help"
+msgstr "Palīdzība"
+
+#: PinTool.cpp:671
+msgid "Reader Name : "
+msgstr "Lasītāja nosaukums: "
+
+#: PinTool.cpp:720
+msgid "Current PIN1 : "
+msgstr "Pašreizējais PIN1: "
+
+#: PinTool.cpp:728
+#: PinTool.cpp:807
+msgid "New PIN1 : "
+msgstr "Jaunais PIN1: "
+
+#: PinTool.cpp:736
+#: PinTool.cpp:815
+msgid "Confirm New PIN1 : "
+msgstr "Atkārtojiet jauno PIN1: "
+
+#: PinTool.cpp:744
+#: PinTool.cpp:962
+#, c-format
+msgid "%s Tries Left = %d"
+msgstr "Atlikušie %s mēģinājumi = %d"
+
+#: PinTool.cpp:799
+msgid "PUK : "
+msgstr "PUK : "
+
+#: PinTool.cpp:823
+#: PinTool.cpp:1003
+#, c-format
+msgid "PUK Tries Left = %d"
+msgstr "Atlikušie PUK mēģinājumi = %d"
+
+#: PinTool.cpp:878
+msgid "PinTool 1.1"
+msgstr "PinRīks 1.1"
+
+#: PinTool.cpp:887
+msgid "(c) 2012"
+msgstr "(c) 2012"
+
+#: PinTool.cpp:891
+msgid "PinTool for Latvia eID Middleware"
+msgstr "PinRīks Latvijas eID starpprogrammatūrai"
+
+#: PinTool.cpp:895
+msgid "http://www.pmlp.gov.lv/en/"
+msgstr "http://www.pmlp.gov.lv"
+
+#: PinTool.cpp:898
+msgid "Version History"
+msgstr "Versiju Vēsture"
+
+#: PinTool.cpp:904
+msgid "Developers"
+msgstr "Izstrādātāji"
+
+#: PinTool.cpp:955
+msgid "Please type the current PIN1 and the new PIN1 twice using the pinpad"
+msgstr "Lūdzu ievadiet pašreizējo PIN1 kodu un jauno PIN1 divreiz izmantojot pinpad"
+
+#: PinTool.cpp:996
+msgid "Please type the PUK and the new PIN1 twice using the pinpad"
+msgstr "Lūdzu ievadiet PUK kodu un jauno PIN1 divreiz izmantojot pinpad"
+
+#: PinTool.h:155
+msgid "Latvia eID Pintool"
+msgstr "Latvijas eID PinRīks"
+
+#: PinTool.h:181
+msgid "Please choose your prefered reader to use"
+msgstr "Lūdzu, izvēlieties lasītāju, ko izmantosit"
+
+#: PinTool.h:275
+msgid "About PinTool"
+msgstr "Par PinRīku"
+
+#~ msgid "ChangeLOG"
+#~ msgstr "ChangeLOG"
+
+#~ msgid ""
+#~ "This version of the PinTool does not support PIN operations on PinPAD "
+#~ "readers"
+#~ msgstr ""
+#~ "Šī PinRīka versija neatbalsta PinPAD viedkaršu lasītāju PIN operācijas"
+
+#~ msgid "1.0.11"
+#~ msgstr "1.0.11"
+
+#~ msgid "Pin Tool"
+#~ msgstr "Pin Rīks"

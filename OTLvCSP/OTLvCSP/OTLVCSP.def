@@ -1,0 +1,30 @@
+LIBRARY OTLVCSP
+
+EXPORTS
+ 
+    CPAcquireContext
+    CPReleaseContext
+    CPGenKey
+    CPDeriveKey
+    CPDestroyKey
+    CPSetKeyParam
+    CPGetKeyParam
+    CPExportKey
+    CPImportKey
+    CPEncrypt
+    CPDecrypt
+    CPCreateHash
+    CPHashData
+    CPHashSessionKey
+    CPDestroyHash
+    CPSignHash
+    CPVerifySignature
+    CPGenRandom
+    CPGetUserKey
+    CPSetProvParam
+    CPGetProvParam
+    CPSetHashParam
+    CPGetHashParam
+
+    DllRegisterServer   PRIVATE
+    DllUnregisterServer PRIVATE

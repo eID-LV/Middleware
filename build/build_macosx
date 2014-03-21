@@ -1,0 +1,9 @@
+!/bin/bash
+set -ex
+
+cd ../opensc-0.12.2
+bash ./MacOSX/build
+cp -f Latvia-eid-middleware*-10.6.dmg ../build/.
+
+bash ./MacOSX/build 10.5
+cp -f Latvia-eid-middleware*-10.5.dmg ../build/.

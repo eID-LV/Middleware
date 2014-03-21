@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_installdocs
+if [ \( "$1" = "upgrade" -o "$1" = "remove" \) -a -L /usr/lib/otlv-pkcs11.so ]; then
+  rm -f /usr/lib/otlv-pkcs11.so
+  rm -f /usr/lib/pkcs11/otlv-pkcs11.so
+  rm -f /usr/bin/otlv-pintool
+  rm -f /usr/share/pixmaps/otlv-pintool.xpm
+  rm -f /usr/share/applications/otlv-pintool.desktop
+fi
+# End automatically added section

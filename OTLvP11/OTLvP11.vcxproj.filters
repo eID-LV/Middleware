@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{137d1384-1a3b-4dba-a46c-7b7993914c65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scconf">
+      <UniqueIdentifier>{d3a86e8f-6519-43fd-ad1f-b65013c029ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pkcs15init">
+      <UniqueIdentifier>{1da815a5-9a8e-489d-b08a-062c6bc17303}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libopensc">
+      <UniqueIdentifier>{0c8b63df-3408-4483-98d8-63ca843e6ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pkcs11">
+      <UniqueIdentifier>{641f9c6c-186a-40d3-ad92-cbe0c51e639e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\opensc-0.12.2\src\common\compat_getopt.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\common\compat_getpass.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\common\compat_strlcat.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\common\compat_strlcpy.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\common\simclist.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\common\libpkcs11.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\common\libscdl.c">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\scconf\parse.c">
+      <Filter>scconf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\scconf\scconf.c">
+      <Filter>scconf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\scconf\sclex.c">
+      <Filter>scconf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\scconf\write.c">
+      <Filter>scconf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-asepcos.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-authentic.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-cardos.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-cflex.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-entersafe.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-gpk.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-iasecc.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-incrypto34.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-jcop.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-lib.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-miocos.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-muscle.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-myeid.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-oberthur.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-oberthur-awp.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-rtecp.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-rutoken.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-setcos.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-starcos.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-westcos.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\profile.c">
+      <Filter>pkcs15init</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\apdu.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\asn1.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\base64.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-acos5.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-akis.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-asepcos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-atrust-acos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-authentic.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-belpic.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-cardos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-default.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-entersafe.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-flex.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-gemsafeV1.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-gpk.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-ias.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-iasecc.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-incrypto34.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-itacns.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-javacard.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-jcop.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-mcrd.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-miocos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-muscle.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-myeid.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-oberthur.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-openpgp.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-piv.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-rtecp.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-rutoken.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-setcos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-starcos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-tcos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-westcos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\compression.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\ctbcs.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\ctx.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\dir.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\ef-atr.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\errors.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\iasecc-sdo.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\iso7816.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\log.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\muscle.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\muscle-filesystem.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\p15card-helper.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\padding.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-actalis.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-algo.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-atrust-acos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-cache.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-cert.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-data.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-esinit.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-esteid.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-gemsafeGPK.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-gemsafeV1.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-infocamere.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-itacns.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-oberthur.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-openpgp.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-pin.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-piv.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-postecert.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-prkey.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-pteid.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-pubkey.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-sec.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-starcert.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-syn.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-tccardos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-tcos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-westcos.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\reader-ctapi.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\reader-openct.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\reader-pcsc.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\sc.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\sec.c">
+      <Filter>libopensc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\hack-disabled.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\debug.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\framework-pkcs15.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\framework-pkcs15init.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\mechanism.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\misc.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\openssl.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\pkcs11-display.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\pkcs11-global.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\pkcs11-object.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\pkcs11-session.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\slot.c">
+      <Filter>pkcs11</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\opensc-0.12.2\src\common\compat_getopt.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\common\compat_getpass.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\common\compat_strlcat.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\common\compat_strlcpy.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\common\simclist.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\common\libpkcs11.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\common\libscdl.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\scconf\scconf.h">
+      <Filter>scconf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-init.h">
+      <Filter>pkcs15init</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-oberthur.h">
+      <Filter>pkcs15init</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\asn1.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\authentic.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\cardctl.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\cards.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\compression.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\ctbcs.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\errors.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\esteid.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\iasecc.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\iasecc-sdo.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\internal.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\internal-winscard.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\iso7816.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\itacns.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\log.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\muscle.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\muscle-filesystem.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\opensc.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\p15card-helper.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\pkcs15.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\types.h">
+      <Filter>libopensc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\pkcs11\pkcs11.h">
+      <Filter>pkcs11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\pkcs11\pkcs11-display.h">
+      <Filter>pkcs11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\opensc-0.12.2\src\pkcs11\sc-pkcs11.h">
+      <Filter>pkcs11</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OTLvP11.rc" />
+  </ItemGroup>
+</Project>

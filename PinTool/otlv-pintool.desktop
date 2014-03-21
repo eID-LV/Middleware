@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Latvia-eID PinTool
+Name[lv]=Latvija-eID PinTool
+Comment=Manage your Latvia-eID smart card
+Comment[lv]=Pārvaldīt savu Latvija-eID viedkarti
+Exec=otlv-pintool
+Terminal=false
+Type=Application
+StartupNotify=false
+Categories=GNOME;Security;System;
+Icon=otlv-pintool
+

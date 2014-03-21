@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2EAD2C3D-F9F5-49C3-B808-37E68D927EFB}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>OTLvP11</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(PlatformName)\</OutDir>
+    <IncludePath>E:\Documents and Settings\brunot\Desktop\src\Trunk\openssl\openssl\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(PlatformName)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(PlatformName)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)..\bin\$(PlatformName)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;HAVE_CONFIG_H;_WIN32_WINNT=0x0501;WIN32_LEAN_AND_MEAN;OPENSC_FEATURES="pcsc openssl zlib";ENABLE_OPENSSL;ENABLE_ZLIB;SIMCLIST_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\opensc-0.12.2\win32;$(SolutionDir)..\opensc-0.12.2\src;$(SolutionDir)..\openssl\include;$(SolutionDir)..\zlib\include;$(SolutionDir)..\Microsoft CNG Development Kit\include;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\openssl\lib;$(SolutionDir)..\zlib\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32MTd.lib;zlibd.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+    </Link>
+    <PreBuildEvent>
+      <Command>copy "$(SolutionDir)..\opensc-0.12.2\win32\winconfig.h" "$(SolutionDir)config.h"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;HAVE_CONFIG_H;_WIN32_WINNT=0x0501;WIN32_LEAN_AND_MEAN;OPENSC_FEATURES="pcsc openssl zlib";ENABLE_OPENSSL;ENABLE_ZLIB;SIMCLIST_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\opensc-0.12.2\win32;$(SolutionDir)..\opensc-0.12.2\src;$(SolutionDir)..\openssl\include;$(SolutionDir)..\zlib\include;$(SolutionDir)..\Microsoft CNG Development Kit\include;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\openssl\x64\lib;$(SolutionDir)..\zlib\x64\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32MTd.lib;zlibd.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+    </Link>
+    <PreBuildEvent>
+      <Command>copy "$(SolutionDir)..\opensc-0.12.2\win32\winconfig.h" "$(SolutionDir)config.h"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;HAVE_CONFIG_H;_WIN32_WINNT=0x0501;WIN32_LEAN_AND_MEAN;OPENSC_FEATURES="pcsc openssl zlib";ENABLE_OPENSSL;ENABLE_ZLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\opensc-0.12.2\win32;$(SolutionDir)..\opensc-0.12.2\src;$(SolutionDir)..\openssl\include;$(SolutionDir)..\zlib\include;$(SolutionDir)..\Microsoft CNG Development Kit\include;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\openssl\lib;$(SolutionDir)..\zlib\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32MT.lib;zlib.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+    </Link>
+    <PreBuildEvent>
+      <Command>copy "$(SolutionDir)..\opensc-0.12.2\win32\winconfig.h" "$(SolutionDir)config.h"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;HAVE_CONFIG_H;_WIN32_WINNT=0x0501;WIN32_LEAN_AND_MEAN;OPENSC_FEATURES="pcsc openssl zlib";ENABLE_OPENSSL;ENABLE_ZLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\opensc-0.12.2\win32;$(SolutionDir)..\opensc-0.12.2\src;$(SolutionDir)..\openssl\include;$(SolutionDir)..\zlib\include;$(SolutionDir)..\Microsoft CNG Development Kit\include;$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\openssl\x64\lib;$(SolutionDir)..\zlib\x64\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libeay32MT.lib;zlib.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
+    </Link>
+    <PreBuildEvent>
+      <Command>copy "$(SolutionDir)..\opensc-0.12.2\win32\winconfig.h" "$(SolutionDir)config.h"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\opensc-0.12.2\src\common\compat_getopt.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\common\compat_getpass.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\common\compat_strlcat.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\common\compat_strlcpy.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\common\libpkcs11.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\common\libscdl.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\common\simclist.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\apdu.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\asn1.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\base64.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-acos5.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-akis.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-asepcos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-atrust-acos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-authentic.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-belpic.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-cardos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-default.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-entersafe.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-flex.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-gemsafeV1.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-gpk.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-ias.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-iasecc.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-incrypto34.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-itacns.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-javacard.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-jcop.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-mcrd.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-miocos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-muscle.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-myeid.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-oberthur.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-openpgp.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-piv.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-rtecp.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-rutoken.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-setcos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-starcos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-tcos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card-westcos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\card.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\compression.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\ctbcs.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\ctx.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\dir.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\ef-atr.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\errors.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\iasecc-sdo.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\iso7816.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\log.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\muscle-filesystem.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\muscle.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\p15card-helper.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\padding.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-actalis.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-algo.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-atrust-acos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-cache.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-cert.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-data.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-esinit.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-esteid.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-gemsafeGPK.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-gemsafeV1.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-infocamere.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-itacns.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-oberthur.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)pkcs15-oberthur-libopensc.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)pkcs15-oberthur-libopensc.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)pkcs15-oberthur-libopensc.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)pkcs15-oberthur-libopensc.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-openpgp.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-pin.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-piv.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-postecert.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-prkey.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-pteid.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-pubkey.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-sec.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-starcert.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-syn.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-tccardos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-tcos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15-westcos.c">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)pkcs15-westcos-libopensc.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)pkcs15-westcos-libopensc.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)pkcs15-westcos-libopensc.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)pkcs15-westcos-libopensc.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\pkcs15.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\reader-ctapi.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\reader-openct.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\reader-pcsc.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\sc.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\libopensc\sec.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\debug.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\framework-pkcs15.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\framework-pkcs15init.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\hack-disabled.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\mechanism.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\misc.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\openssl.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\pkcs11-display.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\pkcs11-global.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\pkcs11-object.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\pkcs11-session.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs11\slot.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-asepcos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-authentic.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-cardos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-cflex.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-entersafe.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-gpk.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-iasecc.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-incrypto34.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-jcop.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-lib.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-miocos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-muscle.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-myeid.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-oberthur-awp.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-oberthur.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-rtecp.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-rutoken.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-setcos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-starcos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-westcos.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\pkcs15init\profile.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\scconf\parse.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\scconf\scconf.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\scconf\sclex.c" />
+    <ClCompile Include="..\opensc-0.12.2\src\scconf\write.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\opensc-0.12.2\src\common\compat_getopt.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\common\compat_getpass.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\common\compat_strlcat.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\common\compat_strlcpy.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\common\libpkcs11.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\common\libscdl.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\common\simclist.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\asn1.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\authentic.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\cardctl.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\cards.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\compression.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\ctbcs.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\errors.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\esteid.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\iasecc-sdo.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\iasecc.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\internal-winscard.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\internal.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\iso7816.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\itacns.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\log.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\muscle-filesystem.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\muscle.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\opensc.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\p15card-helper.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\pkcs15.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\libopensc\types.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\pkcs11\pkcs11-display.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\pkcs11\pkcs11.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\pkcs11\sc-pkcs11.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-init.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\pkcs15init\pkcs15-oberthur.h" />
+    <ClInclude Include="..\opensc-0.12.2\src\scconf\scconf.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OTLvP11.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
